@@ -4,8 +4,8 @@ from Code.stochastic_sampling import get_sentence
 from Code.analyze_words import histogram_dict 
 import os
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CS-1.2-Intro-Data-Structures')
-client = MongoClient(host=f'{host}?retryWrites=false')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Tweet-Generator')
+client = MongoClient(host='{}?retryWrites=false'.format(host))
 db = client.get_default_database()
 trucks = db.trucks
 
@@ -15,7 +15,7 @@ app = Flask(__name__)
 def index():
     """returns user to the homepage"""
     words = 'Code/txtdocs/fish.txt'
-    histogram = histogram_dict(words)
+    histogram = histogram_dict( words)
     sentence = get_sentence(histogram, 25)
     return render_template("home.html", tweet=sentence)
 
