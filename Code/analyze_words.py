@@ -44,20 +44,6 @@ def histogram_dict(file):
 def histogram_tuple(file):
     """return a histogram data structure that stores each unique word
      along with the number of times the word appears in the source text"""
-    # words = []
-    # content = read_file(file)
-    # words = content.split()
-    # words = read_file(file)
-    # histogram = []
-    # for word in wordxs:
-    #     exists = False
-    #     for tWord in range(len(histogram)):
-    #         if tWord == histogram[tWord][0]:
-    #             histogram[tWord] = (word, histogram[tWord][1] + 1)
-    #             exists = True
-    #     if exists == False:
-    #         histogram.append((word, 1))
-    # return histogram
 
     text = read_file(file)
     histogram = []
@@ -108,6 +94,6 @@ if __name__ == "__main__":
     word_frequency = frequency_dict(word, histogram_list)
 
     print(histogram_list)
-    print(f'Unique word count: {unique_words}')
-    print(f"Number of times '{word}' appeared in the text: {word_frequency}")
+    print("Unique word count: {}".format(unique_words))
+    print("Number of times '{}' appeared in the text: {}".format(word, word_frequency))
 

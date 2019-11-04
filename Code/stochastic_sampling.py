@@ -1,17 +1,29 @@
-from Code.analyze_words import read_file, histogram_dict, unique_words
+from analyze_words import read_file, histogram_dict, unique_words
 import random
 import sys
-import pytest
+# import pytest
 
-def pick_random_word(histogram):
-    """picks a random word"""
-    random_index = random.randint(0, len(histogram) - 1)
-    key = list(histogram.keys())
-    return key[random_index]
+# def pick_random_word(histogram):
+#     """picks a random word"""
+#     total_weight = 0
+#     for item in histogram:
+#         total_weight += item[1]
+#     return total_weight
+
+    # random_index = random.randint(0, len(histogram) - 1)
+    # key = list(histogram.keys())
+    # return key[random_index]
 
 def sample_weight(histogram):
     """Uses the histogram dictionary to add each of its keys 
     to a new list based on the keys' value"""
+    # tot_weight = pick_random_word(histogram)
+    # random_weight = random.randint(0, tot_weight)
+    # for word in histogram:
+    #     random_weight = random_weight - word[1]
+    #     if random_weight <= 0:
+    #         return word[0]
+
     freq_list = []
     for key, value in histogram.items():
         [freq_list.append(key) for index in range(value)]
@@ -40,44 +52,42 @@ def get_sentence(histogram, amount=15):
     combine them in a sentence
     PARAMETERS:
     histogram: Dictionary
-    amount: int (default = 15 words)
-    '''
+    amount: int (default = 15 words)'''
     words = []
     for i in range(amount):
         words.append(sample_weight(histogram))
     sentence = ' '.join(words)
-
     return sentence
 
-def testing_random():
-    onecount = 0
-    twocount = 0
-    fishcount = 0
-    bluecount = 0
-    redcount = 0
-    count = 0
-    while count != 100:
-        if pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'two':
-            twocount += 1
-        elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'one':
-            onecount += 1
-        elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'fish':
-            fishcount += 1
-        elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'blue':
-            bluecount += 1
-        elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'red':
-            redcount += 1
-        count += 1
-    print(f"ONE: {onecount}\nTWO: {twocount}\nFISH: {fishcount}\nBLUE: {bluecount}\nRED: {redcount}")
+# def testing_random():
+#     onecount = 0
+#     twocount = 0
+#     fishcount = 0
+#     bluecount = 0
+#     redcount = 0
+#     count = 0
+#     while count != 100:
+#         if pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'two':
+#             twocount += 1
+#         elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'one':
+#             onecount += 1
+#         elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'fish':
+#             fishcount += 1
+#         elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'blue':
+#             bluecount += 1
+#         elif pick_random_word(histogram_dict("txtdocs/fish.txt")) == 'red':
+#             redcount += 1
+#         count += 1
+#     print(f"ONE: {onecount}\nTWO: {twocount}\nFISH: {fishcount}\nBLUE: {bluecount}\nRED: {redcount}")
         
 
 if __name__ == "__main__":
-    # testing_random()
-    entry = f"../Code/txtdocs/{sys.argv[1]}"
+    entry = "../Code/txtdocs/{}".format(sys.argv[1])
     texts = histogram_dict(entry)
     # print(pick_random_word(texts))
     # print(sample_weight(texts))
     # test_sample_weight()
+    # testing_random()
     print(get_sentence(texts, 20))
 
 
