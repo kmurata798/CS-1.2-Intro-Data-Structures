@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
-# from pymongo import MongoClient
+from pymongo import MongoClient
 from Code.stochastic_sampling import get_sentence
-from Code.analyze_words import histogram_dict """HELP WITH THIS PART!!!!!!"""
+from Code.analyze_words import histogram_dict 
 import os
 
-# host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CS-1.2-Intro-Data-Structures')
-# client = MongoClient(host=f'{host}?retryWrites=false')
-# db = client.get_default_database()
-# trucks = db.trucks
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CS-1.2-Intro-Data-Structures')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
+trucks = db.trucks
 
 app = Flask(__name__)
 
