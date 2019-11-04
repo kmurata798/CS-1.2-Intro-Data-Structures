@@ -47,15 +47,31 @@ def histogram_tuple(file):
     # words = []
     # content = read_file(file)
     # words = content.split()
-    words = read_file(file)
+    # words = read_file(file)
+    # histogram = []
+    # for word in wordxs:
+    #     exists = False
+    #     for tWord in range(len(histogram)):
+    #         if tWord == histogram[tWord][0]:
+    #             histogram[tWord] = (word, histogram[tWord][1] + 1)
+    #             exists = True
+    #     if exists == False:
+    #         histogram.append((word, 1))
+    # return histogram
+
+    text = read_file(file)
     histogram = []
-    for word in words:
-        exists = False
-        for tWord in range(len(histogram)):
-            if tWord == histogram[tWord][0]:
-                histogram[tWord] = (word, histogram[tWord][1] + 1)
-                exists = True
-        if exists == False:
+    count = 0
+    for word in text:
+        print(histogram)
+        is_updated = False
+        for tuple in histogram:
+            if tuple[0] == word:
+                count = tuple[1] + 1
+                histogram.remove(tuple)
+                histogram.append((word, count))
+                is_updated = True
+        if is_updated == False:
             histogram.append((word, 1))
     return histogram
              
@@ -81,15 +97,15 @@ def frequency_dict(word, histogram):
             return value
 
 if __name__ == "__main__":
-    histogram_list = histogram_dict("txtdocs/sherlock.txt")
-    # histogram = histogram("txtdocs/sherlock.txt")
-    # histogram = histogram_tuple("txtdocs/sherlock.txt")
+    histogram_list = histogram_dict("txtdocs/fish.txt")
+    # histogram_list = histogram("txtdocs/fish.txt")
+    # histogram_list = histogram_tuple("txtdocs/fish.txt")
 
-    unique_words = unique_words(histogram)
-    word = 'mystery'
+    unique_words = unique_words(histogram_list)
+    word = 'fish'
 
-    # word_frequency = frequency(word, histogram)
-    word_frequency = frequency_dict(word, histogram)
+    # word_frequency = frequency(word, histogram_list)
+    word_frequency = frequency_dict(word, histogram_list)
 
     print(histogram_list)
     print(f'Unique word count: {unique_words}')
