@@ -16,7 +16,7 @@ def index():
     """returns user to the homepage"""
     words = 'Code/txtdocs/fish.txt'
     histogram = histogram_dict( words)
-    sentence = get_sentence(histogram, 25)
+    sentence = get_sentence(histogram, 10)
     return render_template("home.html", tweet=sentence)
 
 if __name__ == "__main__":
