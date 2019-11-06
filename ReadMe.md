@@ -104,3 +104,40 @@ Failure to improve after the PIP is cause for not being allowed to continue at M
 -   [Grading System](https://make.sc/grading-system)
 -   [Program Learning Outcomes](https://make.sc/program-learning-outcomes)
 -   [Title IX Disclaimer](https://make.sc/title-ix-policy)
+
+## Step 6 QUESTIONS:
+1. What are the key feature of the app? Are these clearly separated into their own files, classes, and/or modules?
+
+A: Key features are: —> ``Reading from a file to create a histogram; Pick a specific histogram word; Output the histogram word; Arranging the histogram word in a specific order to form a sentence; and Randomizing the output based on the ratio of the histogram word values.
+
+    Yes these key features are separated into different files/modules.
+———————=======================================================================---------------------------
+2. Are the names of files, modules, functions, and variables appropriate and accurate? Would a new programmer be able to understand the names without too much contextual knowledge?
+
+A: The names are appropriate but may be more accurate if I were to change some of the names. I could make the names more descriptive possibly, or combine some together that would have relations with each other.
+———————=======================================================================---------------------------
+3. What are the scopes of variables and are they appropriate for their use case? If there are global variables, why are they needed?
+
+A: Scopes of variables are the ways to restrict the access of certain variables to be used in a functions or classes.
+    
+    Scope of variables are needed to have the ability to use specific functions for certain tasks throughout the project.
+———————=======================================================================---------------------------
+4.  Are the functions small and clearly specified, with as few side effects as possible?
+
+A: Yes, the functions are small and clearly specified with small numbers of parameters to keep the project more organized.
+———————=======================================================================---------------------------
+5. Are there functions that could be better organized in an Object-Oriented Programming style by defining them as methods of a class?
+
+A: Yes there could be, the dictionary, list, and tuple data structures can be combined into a class and vary different methods based on the data structure requested.
+———————=======================================================================---------------------------
+6. Can files be used as both modules and as scripts?
+
+A: Yes, files can be used as both modules and scripts. 
+
+    The difference is that scripts are usually relatively short and not meant to be linked with other files.
+
+    Modules on the other hand are code files that are more suited for being imported to other files.
+———————=======================================================================---------------------------
+7. Do modules all depend on each other or can they be used independently?
+
+A: Both answers are viable. Modules can either be imported into other modules, or they can be used to run as scripts which aren’t meant to be imported into other files. Modules that share code don’t execute any code, but rather share its functions, variables, and parameters with the other files it is imported into.

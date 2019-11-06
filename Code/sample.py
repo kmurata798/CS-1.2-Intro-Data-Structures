@@ -1,4 +1,5 @@
-from .analyze_words import read_file, histogram_dict, unique_words
+from .tokenize import read_file, histogram_dict, unique_words
+from .sentence import get_sentence
 import random
 import sys
 import pytest
@@ -47,18 +48,6 @@ def test_sample_weight():
 
     return freq_dict
 
-def get_sentence(histogram, amount=15):
-    '''Uses the sample_weight function to get weighted words and
-    combine them in a sentence
-    PARAMETERS:
-    histogram: Dictionary
-    amount: int (default = 15 words)'''
-    words = []
-    for i in range(amount):
-        words.append(sample_weight(histogram))
-    sentence = ' '.join(words)
-    return sentence
-
 # def testing_random():
 #     onecount = 0
 #     twocount = 0
@@ -84,10 +73,10 @@ def get_sentence(histogram, amount=15):
 if __name__ == "__main__":
     entry = "../Code/txtdocs/{}".format(sys.argv[1])
     texts = histogram_dict(entry)
+    print(get_sentence(texts, 20))
+
     # print(pick_random_word(texts))
     # print(sample_weight(texts))
     # test_sample_weight()
     # testing_random()
-    print(get_sentence(texts, 20))
-
 

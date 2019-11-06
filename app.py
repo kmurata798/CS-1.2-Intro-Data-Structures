@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 
-from Code.stochastic_sampling import get_sentence
-from Code.analyze_words import histogram_dict
+from Code.sentence import get_sentence
+from Code.tokenize import histogram_dict
 import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Tweet-Generator')
