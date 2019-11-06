@@ -113,13 +113,13 @@ A:
     Key features are: —> ``Reading from a file to create a histogram; Pick a specific histogram word; Output the histogram word; Arranging the histogram word in a specific order to form a sentence; and Randomizing the output based on the ratio of the histogram word values.
 
     Yes these key features are separated into different files/modules.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 2. Are the names of files, modules, functions, and variables appropriate and accurate? Would a new programmer be able to understand the names without too much contextual knowledge?
 
 A:  
     
     The names are appropriate but may be more accurate if I were to change some of the names. I could make the names more descriptive possibly, or combine some together that would have relations with each other.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 3. What are the scopes of variables and are they appropriate for their use case? If there are global variables, why are they needed?
 
 A:  
@@ -127,19 +127,19 @@ A:
     Scopes of variables are the ways to restrict the access of certain variables to be used in a functions or classes.
     
     Scope of variables are needed to have the ability to use specific functions for certain tasks throughout the project.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 4.  Are the functions small and clearly specified, with as few side effects as possible?
 
 A:  
     
     Yes, the functions are small and clearly specified with small numbers of parameters to keep the project more organized.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 5. Are there functions that could be better organized in an Object-Oriented Programming style by defining them as methods of a class?
 
 A:  
     
     Yes there could be, the dictionary, list, and tuple data structures can be combined into a class and vary different methods based on the data structure requested.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 6. Can files be used as both modules and as scripts?
 
 A:  
@@ -149,7 +149,7 @@ A:
     The difference is that scripts are usually relatively short and not meant to be linked with other files.
 
     Modules on the other hand are code files that are more suited for being imported to other files.
-———————=======================================================================---------------------------
+———————=======================================================================-------
 7. Do modules all depend on each other or can they be used independently?
 
 A:  
