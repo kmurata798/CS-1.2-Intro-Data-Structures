@@ -1,4 +1,5 @@
-from .tokenize import read_file, histogram_dict, unique_words
+from .get_words import read_file
+from .word_count import histogram_dict, unique_words
 from .sentence import get_sentence
 import random
 import sys

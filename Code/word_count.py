@@ -1,4 +1,4 @@
-from .word_count import read_file
+from .get_words import read_file
 
 def histogram(file):
     """return a histogram data structure [list] that stores each unique word
