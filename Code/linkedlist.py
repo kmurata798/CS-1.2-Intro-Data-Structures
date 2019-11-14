@@ -101,7 +101,7 @@ class LinkedList(object):
         """Return an item from this linked list satisfying the given quality.
         Best case running time: O(1) because if the first search, head, 
         matches the given quality, we can end the searching?
-        Worst case running time: O(n) because we have to go through all n number of nodes which takes more time"""
+        Worst case running time: O(n) because we have to go through all n number of nodes which takes more time."""
         if self.head is not None:
             current_node = self.head
             while current_node is not None:
@@ -118,35 +118,66 @@ class LinkedList(object):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(1) because if the first search, head, 
         matches the given quality, we can end the searching?
-        TODO: Worst case running time: O(n) """
-        temp = self.head 
-  
-        # If head node itself holds the key to be deleted
-        if (temp is not None): 
-            if (temp.data == item): 
-                self.head = temp.next
-                temp = None
-                return
+        TODO: Worst case running time: O(n) because we have to go through all n number of nodes which takes more time."""
+        previous_node = None
+        current_node = self.head
+        found = False
+        if self.is_empty():
+            raise ValueError('Item not found: {}'.format(item))
 
-            # Search for the key to be deleted, keep track of the 
-            # previous node as we need to change 'prev.next' 
-            while(temp is not None): 
-                if temp.data == item: 
-                    break 
-                prev = temp 
-                temp = temp.next 
-    
-            # if key was not present in linked list 
-            if(temp == None): 
-                return 
-    
-            # Unlink the node from linked list 
-            prev.next = temp.next 
-    
-            temp = None 
+        elif self.head == self.tail: # If only one node in the list
+            if current_node.data == item:
+                self.head = None
+                self.tail = None
+            else:
+                raise ValueError('Item not found: {}'.format(item))
         
         else:
-            raise ValueError('Item not found: {}'.format(item))
+            while current_node is not None:
+                if current_node.data == item:
+                    found = True
+                    if previous_node is None: # If first node is the correct one
+                        self.head = current_node.next
+                    elif current_node == self.tail: #If last node is the correct one
+                        self.tail = previous_node
+                        previous_node.next = None
+                    else:
+                        previous_node.next = current_node.next
+                previous_node = current_node
+                current_node = current_node.next
+            if found is False:
+                raise ValueError('Item not found: {}'.format(item))
+
+
+  
+        # # If head node itself holds the key to be deleted
+        # if (temp is not None): 
+        #     if (temp.data == item): 
+        #         self.head = temp.next
+        #         temp = None
+        #         return
+
+        #     # Search for the key to be deleted, keep track of the 
+        #     # previous node as we need to change 'prev.next' 
+        #     while(temp is not None): 
+        #         if temp.data == item: 
+        #             break 
+        #         prev = temp 
+        #         temp = temp.next 
+    
+        #     # if key was not present in linked list 
+        #     if(temp == None): 
+        #         return 
+    
+        #     # Unlink the node from linked list 
+        #     prev.next = temp.next 
+    
+        #     temp = None 
+        
+        # else:
+        #     raise ValueError('Item not found: {}'.format(item))
+
+
         # Loop through all nodes to find one whose data matches given item
         # Update previous node to skip around node with matching data
         # Otherwise raise error to tell user that delete has failed
