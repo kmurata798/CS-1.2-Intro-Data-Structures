@@ -29,7 +29,7 @@ def get_file_lines(filename):
 def pick_random_word():
     lines = get_file_lines("/usr/share/dict/words")
     word_list = []
-    for index in range(amount):
+    for index in range(number_of_words):
         word_list.append(random.choice(lines))
     return(' '.join(word_list))
     # index = random.randint(0, len(word_list) - 1)
@@ -37,5 +37,5 @@ def pick_random_word():
     # return word_list[index]
 
 if __name__ == "__main__":
-    amount = int(sys.argv[1])
+    number_of_words = int(sys.argv[1])
     print(pick_random_word())
