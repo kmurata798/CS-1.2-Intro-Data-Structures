@@ -1,6 +1,5 @@
-from Code.get_words import read_file_text
-from Code.word_count import histogram_dict, unique_words
-from Code.sentence import get_sentence
+from get_words import read_file_text
+from word_count import histogram_dict, unique_words
 import random
 import sys
 import pytest
@@ -31,6 +30,17 @@ def sample_weight(histogram):
     #     if random_weight <= 0:
     #         return word[0]
 
+def get_sentence(histogram, amount=15):
+    '''Uses the sample_weight function to get weighted words and
+    combine them in a sentence
+    PARAMETERS:
+    histogram: Dictionary
+    amount: int (default = 15 words)'''
+    words = []
+    for i in range(amount):
+        words.append(sample_weight(histogram))
+    sentence = ' '.join(words)
+    return sentence
     
 def test_sample_weight():
     """Test sample_weight function"""

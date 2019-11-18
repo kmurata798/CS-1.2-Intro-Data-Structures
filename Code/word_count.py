@@ -1,11 +1,11 @@
-from .get_words import read_file
+from get_words import read_file_text
 
 def histogram(file):
     """return a histogram data structure [list] that stores each unique word
     along with the number of times the word appears in the source text.
     !!!TAKES VERY LONG TO LOAD!!!"""
 
-    text = read_file(file)
+    text = read_file_text(file)
     histogram = []
 
     for word in text:
@@ -23,7 +23,7 @@ def histogram_dict(file):
     """return a histogram data structure that stores each unique word 
     along with the number of times the word appears in the source text"""
 
-    words = read_file(file)
+    words = read_file_text(file)
     histogram = {}
     for word in words:
         if word in histogram:
@@ -38,7 +38,7 @@ def histogram_tuple(file):
     """return a histogram data structure that stores each unique word
      along with the number of times the word appears in the source text"""
 
-    text = read_file(file)
+    text = read_file_text(file)
     histogram = []
     count = 0
     for word in text:
