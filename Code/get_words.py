@@ -1,7 +1,7 @@
 import string, re
 
 # HISTOGRAM FUNCTION
-def read_file(file):
+def read_file_text(file):
     """Reads from file"""
     with open(file, 'r') as f:
         words = f.read().split()

@@ -1,4 +1,4 @@
-from .sample import sample_weight
+from Code.sample_word import sample_weight
 
 def get_sentence(histogram, amount=15):
     '''Uses the sample_weight function to get weighted words and

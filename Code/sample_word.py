@@ -1,6 +1,6 @@
-from .get_words import read_file
-from .word_count import histogram_dict, unique_words
-from .sentence import get_sentence
+from Code.get_words import read_file_text
+from Code.word_count import histogram_dict, unique_words
+from Code.sentence import get_sentence
 import random
 import sys
 import pytest
@@ -19,6 +19,11 @@ import pytest
 def sample_weight(histogram):
     """Uses the histogram dictionary to add each of its keys 
     to a new list based on the keys' value"""
+    freq_list = []
+    for key, value in histogram.items():
+        [freq_list.append(key) for index in range(value)]
+    rand_num = random.randint(0, len(freq_list) - 1)
+    return freq_list[rand_num]
     # tot_weight = pick_random_word(histogram)
     # random_weight = random.randint(0, tot_weight)
     # for word in histogram:
@@ -26,11 +31,6 @@ def sample_weight(histogram):
     #     if random_weight <= 0:
     #         return word[0]
 
-    freq_list = []
-    for key, value in histogram.items():
-        [freq_list.append(key) for index in range(value)]
-    rand_num = random.randint(0, len(freq_list) - 1)
-    return freq_list[rand_num]
     
 def test_sample_weight():
     """Test sample_weight function"""
