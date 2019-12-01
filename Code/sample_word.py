@@ -1,5 +1,5 @@
-from get_words import read_file_text
-from word_count import histogram_dict, unique_words
+from Code.get_words import read_file_text
+from Code.word_count import histogram_dict, unique_words
 import random
 import sys
 import pytest

@@ -1,4 +1,4 @@
-from dictogram import Dictogram, read_file
+from Code.dictogram import Dictogram, read_file
 import random
 
 def next_chain(word_list, new_word):
