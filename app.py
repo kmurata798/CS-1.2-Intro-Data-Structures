@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
-
+from pymongo import MongoClient
 # from Code.sentence import get_sentence
 # from Code.cleanup import *
 # from Code.word_count import histogram_dict
 # from Code.sample import sample_weight
 # from Code.tokenize import read_file
 from Code.dictogram import Dictogram, read_file
+from Code.markov_chain import make_sentence, traverse
 import os
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Tweet-Generator')
