@@ -57,40 +57,73 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all buckets
-        # TODO: Count number of key-value entries in each bucket
+        # Loop through all buckets
+        # Count number of key-value entries in each bucket
+        count = 0
+        for bucket in self.buckets:
+            count += bucket.length()
+        return count
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
+        # Find bucket where given key belongs
+        # Check if key-value entry exists in bucket
+        bucket = self.get_bucket(key)
+        for current_key, value in bucket.items():
+            if current_key == key:
+                return True
+        return False
 
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, return value associated with given key
-        # TODO: Otherwise, raise error to tell user get failed
+        # Find bucket where given key belongs
+        # Check if key-value entry exists in bucket
+        # If found, return value associated with given key
+        # Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
+        bucket = self.get_bucket(key)
+        for current_key, value in bucket.items():
+            if current_key == key:
+                return value
+        raise KeyError('Key not found: {}'.format(key))
 
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, update value associated with given key
-        # TODO: Otherwise, insert given key-value entry into bucket
+        # Find bucket where given key belongs
+        # Check if key-value entry exists in bucket
+        # If found, update value associated with given key
+        # Otherwise, insert given key-value entry into bucket
+        bucket = self.get_bucket(key)
+        if self.contains(key):
+            for current_key, current_value in bucket.items():
+                if current_key == key:
+                    bucket.delete((current_key, current_value))
+                    bucket.append((key, value))
+        else:
+            bucket.append((key, value))
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
-        # TODO: Find bucket where given key belongs
-        # TODO: Check if key-value entry exists in bucket
-        # TODO: If found, delete entry associated with given key
-        # TODO: Otherwise, raise error to tell user delete failed
+        # Find bucket where given key belongs
+        # Check if key-value entry exists in bucket
+        # If found, delete entry associated with given key
+        # Otherwise, raise error to tell user delete failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
+        bucket = self.get_bucket(key)
+        if self.contains(key):
+            for current_key, value in bucket.items():
+                if current_key == key:
+                    bucket.delete((current_key, value))
+        else:
+            raise KeyError('Key not found: {}'.format(key))
+
+    def get_bucket(self, key):
+        """Return the bucket based off the hash value of the key"""
+        return self.buckets[self._bucket_index(key)]
 
 
 def test_hash_table():

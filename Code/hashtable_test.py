@@ -1,4 +1,5 @@
 #!python
+# To run the test --> $ python3 -m pytest hashtable_test.py
 
 from hashtable import HashTable
 import unittest
