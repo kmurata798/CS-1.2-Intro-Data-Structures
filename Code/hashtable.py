@@ -27,8 +27,8 @@ class HashTable(object):
     def keys(self):
         """Return a list of all keys in this hash table.
         Running time: 
-        Average case --> O(n) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) Must loop through each bucket, followed by each item in the bucket."""
+        Average case --> O(l*b)==O(n) Every bucket has 1 item == immediately locates data.
+        Worst case ----> O(l*b)==O(n) Must loop through each bucket, followed by each item in the bucket"""
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -39,8 +39,8 @@ class HashTable(object):
     def values(self):
         """Return a list of all values in this hash table.
         Running time: 
-        Average case --> O(n) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) Must loop through each bucket, followed by each item in the bucket."""
+        Average case --> O(l*b)==O(n) Every bucket has 1 item == immediately locates data.
+        Worst case ----> O(l*b)==O(n) Must loop through each bucket, followed by each item in the bucket."""
         # Loop through all buckets
         # Collect all values in each bucket
         all_values = []
@@ -52,8 +52,8 @@ class HashTable(object):
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
         Running time: 
-        Average case --> O(n) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) When more than one item is hashed into the specified bucket."""
+        Average case --> O(l*b)==O(n) Every bucket has 1 item == immediately locates data.
+        Worst case ----> O(l*b)==O(n) When more than one item is hashed into the specified bucket."""
         # Collect all pairs of key-value entries in each bucket
         all_items = []
         for bucket in self.buckets:
@@ -63,9 +63,9 @@ class HashTable(object):
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
         Running time: 
-        Average case --> O(1) Only 1 item in 1 bucket == only need to loop through for loop once to get
+        Average case --> O(l*b)==O(n) Only 1 item in 1 bucket == only need to loop through for loop once to get
                          length.
-        Worst case ----> O(n) When more than one item is hashed into one or more buckets == must loop n
+        Worst case ----> O(l*b)==O(n) When more than one item is hashed into one or more buckets == must loop n
                          times based on how many items exist."""
         # Loop through all buckets
         # Count number of key-value entries in each bucket
@@ -78,7 +78,7 @@ class HashTable(object):
         """Return True if this hash table contains the given key, or False.
         Running time: 
         Average case --> O(1) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) When more than one item is hashed into the specified bucket."""
+        Worst case ----> O(n/b)==O(l) When more than one item is hashed into the specified bucket."""
         # Find bucket where given key belongs
         # Check if key-value entry exists in bucket
         bucket = self.get_bucket(key)
@@ -91,7 +91,7 @@ class HashTable(object):
         """Return the value associated with the given key, or raise KeyError.
         Running time: 
         Average case --> O(1) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) When more than one item is hashed into the specified bucket."""
+        Worst case ----> O(n/b)==O(l) When more than one item is hashed into the specified bucket."""
         # Find bucket where given key belongs
         # Check if key-value entry exists in bucket
         # If found, return value associated with given key
@@ -106,8 +106,8 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Running time: 
-        AAverage case --> O(1) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) When more than one item is hashed into the specified bucket."""
+        Average case --> O(1) Every bucket has 1 item == immediately locates data.
+        Worst case ----> O(n/b)==O(l) When more than one item is hashed into the specified bucket."""
         # Find bucket where given key belongs
         # Check if key-value entry exists in bucket
         # If found, update value associated with given key
@@ -125,7 +125,7 @@ class HashTable(object):
         """Delete the given key from this hash table, or raise KeyError.
         Running time: 
         Average case --> O(1) Every bucket has 1 item == immediately locates data.
-        Worst case ----> O(n) When more than one item is hashed into the specified bucket."""
+        Worst case ----> O(n/b)==O(l) When more than one item is hashed into the specified bucket."""
         # Find bucket where given key belongs
         # Check if key-value entry exists in bucket
         # If found, delete entry associated with given key
