@@ -17,7 +17,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """returns user to the homepage"""
-    word_doc = 'Code/txtdocs/fish.txt'
+    word_doc = 'Code/txtdocs/sherlock.txt'
     words = read_file(word_doc)
     histogram = Dictogram(words)
     sentence = histogram.get_sentence(15)

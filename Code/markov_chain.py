@@ -32,7 +32,30 @@ class Markov():
         for a in range(len(self.word_list)-1): 
             """loop through each word in word_list"""
             words.clear()
-            for b
+            for b in range(self.order):
+                """order --> # of Markov Order"""
+                if a < (len(self.word_list) - self.order):
+                    """checks if given words are would be outside the range of word_list"""
+                    words.append(self.word_list[a + b])
+            if words == focus_words:
+                """If the words inside word_list matches our focus words..."""
+                next_words.clear()
+                for b in range(self.order):
+                    """Append next words and combines them into a string"""
+                    next_words.append(self.word_list[a + (b + 1)])
+                next_words_string = ' '.join(next_words)
+                next_pairs.append(next_words_string)
+
+        dictio[new_words] = Dictogram(next_pairs)
+        return dictio
+
+    def order_sample(self):
+        """Gathers starting words from sampling to use for higher walk.
+
+        word_list = str
+        order = int
+
+                    
 
 def next_chain(word_list, new_word):
     """If the word found is equal to next_word, append the word to the list.
