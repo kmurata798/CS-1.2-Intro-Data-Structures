@@ -1,5 +1,38 @@
-from Code.dictogram import Dictogram, read_file
+from .dictogram import Dictogram, read_file
 import random
+
+class Markov():
+    """Generate sentence in different orders with a given amount"""
+
+    def __init__(self, word_list, amount, order=2):
+        """Initialize class variables
+        
+        word_list = str
+        new_words = str
+        order = int
+        """
+        self.word_list = word_list
+        self.amount = amount
+        self.order = order
+
+    def higher_order(self, new_words):
+        """Traverse through list of words, combining them into a string. The number of words in the string
+        depends on the order number. If the string matches new_words string, add new_words to a list and
+        combine it into a string.
+        
+        new_words = str
+        """
+
+        dictio = dict()
+        focus_words = new_words.split()
+        words = []
+        next_words = []
+        next_pairs = []
+
+        for a in range(len(self.word_list)-1): 
+            """loop through each word in word_list"""
+            words.clear()
+            for b
 
 def next_chain(word_list, new_word):
     """If the word found is equal to next_word, append the word to the list.
