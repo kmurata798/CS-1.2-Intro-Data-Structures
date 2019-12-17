@@ -5,7 +5,7 @@ from pymongo import MongoClient
 # from Code.word_count import histogram_dict
 # from Code.sample import sample_weight
 # from Code.tokenize import read_file
-from Code.dictogram import Dictogram, read_file
+# from Code.dictogram import Dictogram, read_file
 from Code.markov_chain import Markov
 import os
 
@@ -17,9 +17,9 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     """returns user to the homepage"""
-    word_doc = 'Code/txtdocs/poe.txt'
+    word_doc = 'Code/txtdocs/sherlock.txt'
     # words = read_file(word_doc)
-    markov = Markov(read_file(word_doc), 20)
+    markov = Markov(word_doc, 20)
     sentence = markov.main()
     # histogram = Dictogram(words)
     # sentence = histogram.get_sentence(15)
