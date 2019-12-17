@@ -96,7 +96,7 @@ class Markov():
         for index in range(self.amount - self.order):
             next_words = []
             chain = self.higher_order(words_str) #Returns n order length of words
-            if len(chain[words_str]) > 1:
+            if len(chain[words_str]) > 0:
                 words_str = chain[words_str].sample()
                 next_words = words_str.split()
                 sentence.append(next_words[self.order - 1]) #Only get one item from next words to not repeat center word.

@@ -18,12 +18,9 @@ app = Flask(__name__)
 def index():
     """returns user to the homepage"""
     word_doc = 'Code/txtdocs/sherlock.txt'
-    # words = read_file(word_doc)
     markov = Markov(word_doc, 20)
     sentence = markov.main()
-    # histogram = Dictogram(words)
-    # sentence = histogram.get_sentence(15)
     return render_template("home.html", tweet=sentence)
 
 if __name__ == "__main__":
-    app.run(Debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
